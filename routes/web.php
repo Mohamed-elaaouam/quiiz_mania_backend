@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\quizController;
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -14,4 +16,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-});
+}); 
+
+
+// Route::get('', function () {})->name('users.index');
+
+Route::resource('users',userController::class);
+Route::resource('quizzes',quizController::class);
